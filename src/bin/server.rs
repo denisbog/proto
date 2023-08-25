@@ -12,7 +12,7 @@ struct PingImpl {}
 #[tonic::async_trait]
 impl Ping for PingImpl {
     async fn ping(&self, request: Request<PingRequest>) -> Result<Response<PingResponse>, Status> {
-        println!("processing request {:?}", request);
+        println!("processing request {:?}", request.into_inner().message);
         Ok(Response::new(PingResponse {
             status_code: StatusCode::Success.into(),
         }))
