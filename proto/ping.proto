@@ -1,0 +1,14 @@
+
+syntax = "proto3";
+package ping;
+
+service Ping { rpc ping(PingRequest) returns (PingResponse); }
+
+message PingRequest { string message = 1; }
+
+message PingResponse { StatusCode statusCode = 1; }
+
+enum StatusCode {
+  FAILURE = 0;
+  SUCCESS = 1;
+}
